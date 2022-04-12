@@ -7,9 +7,124 @@
     <title>Elections</title>
 </head>
 <body>
-    
+  <div id="map-elections"></div>  
 </body>
 <script src="./lib/d3.v7.min.js"></script>
 <script src="./lib/lodash.min.js"></script>
+
+<script type="text/javascript" class="my_scripts" src="lib/CrossFilterDataSource.js"></script>
+<script type="text/javascript" src="lib/webWorker_CrossFilterDataSource.js"></script>
+<script type="text/javascript" src="lib/webWorker_Class.js"></script>
+
+<script type="text/javascript" src="lib/params_groupControl.js"></script>
+<script type="text/javascript" src="lib/params_Slider.js"></script>
+<script type="text/javascript" src="lib/SliderDoubleRange_class.js"></script>
+<script type="text/javascript" src="lib/params_textSearch.js"></script>
+<script type="text/javascript" src="lib/textSearch_class.js"></script>
+<script type="text/javascript" src="lib/adresse_searchBox.js"></script>
+<script type="text/javascript" src="lib/params_table.js"></script>
+<script type="text/javascript" src="lib/table_class.js"></script>
+
+<script type="text/javascript" src="lib/stats_functions_v2.js"></script>   
+<script type="text/javascript" src="lib/func_utiles.js"></script>    
+
+
+
+
+
+<!-- external_libs -->      
+  <script type="module" src="./lib/comlink.mjs"></script>  
+  <link rel="stylesheet" href="./css/nouislider.min.css">
+
+      
+  <script type="text/javascript" src="./lib/anime.min.js"></script>
+  <!-- <script type="text/javascript" src="./lib/external_libs/jquery-3.5.1.min.js"></script>     -->
+
+
+  <script type="text/javascript" src="lib/nouislider.min.js"></script>
+  <script type="text/javascript" src="lib/wNumb.min.js"></script>
+
+
+  <script type="text/javascript" src="lib/lodash.min.js"></script>
+  <script type="module" src="lib/simple-statistics.min.js"></script>      
+
+
+<!-- charting libs -->
+  <script type="text/javascript" src="./lib/chart3.min.js"></script>
+  <script type="text/javascript" src="./lib/chartjs-plugin-datalabels@2.js"></script>
+
+  <!-- leaflet + heatmap JS -->
+  <script>L_PREFER_CANVAS = true;</script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script> -->
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+  
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+  
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> -->
+  <script type="text/javascript" src="./lib/leaflet/Leaflet.Editable.js"></script>
+  <script type="text/javascript" src="./lib/leaflet/Path.Drag.js"></script>
+  <script type="text/javascript" src="./lib/leaflet/leaflet-pip.js"></script>
+  <link rel="stylesheet" href="lib/leaflet/Control.FullScreen.css" />
+  <script src="./lib/leaflet/Control.FullScreen.js"></script>    
+
+
+
+
+<!-- func & params files -->
+<script type="text/javascript" src="lib/class_sharedParams.js"></script>
+<script type="text/javascript" src="lib/bin_custom_func_v_0_1.js"></script>
+<script type="text/javascript" src="lib/interpolateColors.js"></script>
+<script type="text/javascript" src="lib/color_generator.js"></script>
+
+
+  <!-- charts & maps classes-->      
+<script type="text/javascript" src="lib/generateLegends_v2.js"></script>
+<script type="text/javascript" src="lib/param_customSpec_PieChartsJS_v2.js"></script>
+<script type="text/javascript" src="lib/param_customSpec_BarChartsJS.js"></script>
+<script type="text/javascript" src="lib/param_customSpec_CurveChartsJS.js"></script>
+<script type="text/javascript" src="lib/simpleBarChart_class.js"></script>
+<script type="text/javascript" src="lib/pieChart_class_v2.js"></script>
+<script type="text/javascript" src="lib/stateManagement_10.js"></script>
+<script type="text/javascript" src="lib/params_map.js"></script>
+<script type="text/javascript" src="lib/map_class_v3.js"></script>
+<script type="text/javascript" src="lib/map_choroplethe_class_v2.js"></script>
+<script type="text/javascript" src="lib/barChart_binned_class.js"></script>
+<script type="text/javascript" src="lib/grouped_barChart_class_6.js"></script>
+<script type="text/javascript" src="lib/stacked_barChart_class.js"></script>
+<script type="text/javascript" src="lib/curveChart_class.js"></script>
+<script type="text/javascript" src="lib/mixed_BarLineChart_singleScale_class_v2.js"></script>
+<script type="text/javascript" src="lib/mixed_BarLineChart_doubleScale_class.js"></script>
+<script type="text/javascript" src="lib/params_scatterChart.js"></script>
+<script type="text/javascript" src="lib/scatterChart_class.js"></script>
+<script type="text/javascript" src="lib/params_radar_chart.js"></script>
+<script type="text/javascript" src="lib/radar_class.js"></script>    
+<script type="text/javascript" src="lib/params_tickChart.js"></script>
+<script type="text/javascript" src="lib/tickChart_class.js"></script>            
+<script type="text/javascript" src="lib/params_label.js"></script>
+<script type="text/javascript" src="lib/label_class_v2.js"></script>
+<!-- <script type="text/javascript" src="lib/labelGroup_class.js"></script> -->
+<script type="text/javascript" src="lib/params_heatmap.js"></script>    
+<script type="text/javascript" src="lib/heatmap_class.js"></script>
+<script type="text/javascript" src="lib/params_groupButtons.js"></script>
+<script type="text/javascript" src="lib/button_group_class.js"></script>
+
+
+<script type="text/javascript" src="lib/outTurf.min.js"></script>
+
+
+<script type="text/javascript" src="lib/nouislider.min.js"></script>
+<script type="text/javascript" src="lib/wNumb.min.js"></script>
+<script type="text/javascript" src="./lib/anime.min.js"></script>
+
+<script src="./lib/stgpc.js"></script>
 <script src="./lib/data_loader.js"></script>
+
+
 </html>
